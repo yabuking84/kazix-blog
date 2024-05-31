@@ -1,15 +1,10 @@
-// had to rename from i18n.d.ts to global.d.ts because my components wont detect it
-
-import "i18next"
-
-import Resources from './resources'
-import { defaultNSType, i18n } from '../i18n.config'
-
-declare module "i18next" {
-  interface CustomTypeOptions {
-    defaultNS: defaultNSType
-    resources: Resources
-  }
+import all from './resources';
+ 
+type Messages = all['en'];
+ 
+declare global {
+  // Use type safe message keys with `next-intl`
+  interface IntlMessages extends Messages {}
 }
 
 declare module '*.svg' {

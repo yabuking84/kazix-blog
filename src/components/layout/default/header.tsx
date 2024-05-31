@@ -2,8 +2,10 @@
 
 import Menu from "./menu"
 import Logo from "@/components/common/logo"
+import { Locale } from "@/i18n.config"
 import { motion, useInView } from "framer-motion"
 import { useEffect, useMemo, useRef } from "react"
+
 
 export default function Header() {
 
