@@ -18,6 +18,10 @@ interface Resources {
       "language": "Language",
       "english": "English",
       "turkish": "Turkish"
+    },
+    "error": {
+      "text": "Something went wrong!",
+      "button": "Try again"
     }
   },
   "tr": {
@@ -39,6 +43,10 @@ interface Resources {
       "language": "Dil",
       "english": "English",
       "turkish": "Türkçe"
+    },
+    "error": {
+      "text": "Bir şeyler yanlış gitti!",
+      "button": "Tekrar deneyin"
     }
   }
 }

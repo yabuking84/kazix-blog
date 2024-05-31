@@ -2,43 +2,39 @@ import { z } from 'zod'
 
 const imgTypes = ['apng', 'avif', 'gif', 'jpeg', 'jpg', 'png', 'svg', 'webp', 'bmp', 'ico', 'tiff']
 
-const result = {
+const news = z.object({
     article_id: z.string(),
     title: z.string(),
-    link: z.string(),
-    creator:z.string().array().nullish()
-}
+    description: z.string(),
+    link: z.string().optional(),
+    pubDate: z.string().optional(),
+    creator: z.string().array().nullish(),
+    image_url: z.string()
+        .trim()
+        .nullish()
+        .transform(val => {
+            if (!val) return 'no-image'
+            return val
+        })
+})
 
-const news = {
+const newsResult = z.object({
     status: z.string().trim().min(3, {
         message: 'Invalid Status!'
     }),
     "totalResults": z.number({
         invalid_type_error: 'Invalid Total Results!'
     }),
-    results: z.array()
-}
-
-export const CreateNewsSchema = z.object({
-
+    results: z.array(news)
 })
-export type CreateNewsType = z.infer<typeof CreateNewsSchema>
-export type FlattenedCreateNewsErrors = z.inferFlattenedErrors<typeof CreateNewsSchema>;
-
-export const EditNewsSchema = z.object({
-    email: News.email.optional(),
-    first_name: News.first_name.optional(),
-    last_name: News.last_name.optional()
-})
-export type EditNewsType = z.infer<typeof EditNewsSchema>
-export type FlattenedEditNewsErrors = z.inferFlattenedErrors<typeof EditNewsSchema>;
 
 
-export const NewsSchema = z.object(News)
+export const NewsResultSchema = newsResult
+export type NewsResultType = z.infer<typeof NewsResultSchema>
+export const NewsSchema = news
 export type NewsType = z.infer<typeof NewsSchema>
 
-export const NewssSchema = z.array(NewsSchema)
-export type NewssType = z.infer<typeof NewssSchema>
+export type FlattenedNewsErrors = z.inferFlattenedErrors<typeof NewsResultSchema>;
 
 
 

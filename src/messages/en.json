@@ -17,5 +17,9 @@
         "language": "Language",
         "english": "English",
         "turkish": "Turkish"
+    },
+    "error":{
+        "text": "Something went wrong!",
+        "button": "Try again"
     }
 }

@@ -17,5 +17,9 @@
         "language": "Dil",
         "english": "English",
         "turkish": "Türkçe"
+    },
+    "error":{
+        "text": "Bir şeyler yanlış gitti!",
+        "button": "Tekrar deneyin"
     }    
 }
