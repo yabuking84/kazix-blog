@@ -1,11 +1,15 @@
-import Link from "next/link"
+"use client"
+
+import DarkMode from "./dark-mode"
+import LanguageSwitcher from "./lang"
+
 
 export default function Menu() {
+
     return (
-        <nav className="mx-2">
-            <ul className="hidden md:flex space-x-6 mx-4">
-                <li>hello</li>
-            </ul>
-        </nav>
+        <div className="mx-2 flex items-center">
+            <DarkMode className="me-10" />
+            <LanguageSwitcher />
+        </div>
     )
 }

@@ -2,9 +2,9 @@
 
 import Menu from "./menu"
 import Logo from "@/components/common/logo"
-import { Locale } from "@/i18n.config"
 import { motion, useInView } from "framer-motion"
 import { useEffect, useMemo, useRef } from "react"
+import NextTopLoader from "nextjs-toploader";
 
 
 export default function Header() {
@@ -34,6 +34,9 @@ export default function Header() {
         <>
             <div ref={viewHolder} className="absolute top-10 w-full bg-transparent opacity-5 -z-50"></div>
             <header className={`flex justify-between items-center w-full relative z-10 `}>
+                <NextTopLoader
+                    color="#000"
+                    showSpinner={false} />
                 <motion.div layout
                     initial={'hide'}
                     animate={'animateState'}
@@ -43,9 +46,9 @@ export default function Header() {
                         duration: 0.3,
                         delay: 0
                     }}
-                    className={`w-full flex bg-white  z-20 ${isScrolling ? 'border-b fixed top-0' : ''}`}  >
-                    <div className="w-full flex justify-between items-center">
-                        <Logo className="my-4 ms-6" />
+                    className={`w-full flex bg-background z-20 border-b ${isScrolling ? ' fixed top-0' : ''}`}  >
+                    <div className="container px-2 w-full flex justify-between items-center">
+                        <Logo className="my-4" />
                         <Menu />
                     </div>
                 </motion.div>

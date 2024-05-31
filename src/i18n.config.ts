@@ -6,6 +6,11 @@ export const i18n = {
 } as const
 export type Locale = (typeof i18n)['locales'][number]
 
+export const lang: { title: string, code: Locale }[] = [
+    { title: 'English', code: 'en' },
+    { title: 'Turkish', code: 'tr' }
+]
+
 export type namespaces = 'global' | 'home'
 export type defaultNSType = 'global'
 export const defaultNS = 'global' 

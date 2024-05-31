@@ -12,5 +12,10 @@
         "privacy-policy": "Privacy Policy",
         "cookie-policy": "Cookie Policy",
         "about": "About"
+    },
+    "language-switcher": {
+        "language": "Language",
+        "english": "English",
+        "turkish": "Turkish"
     }
 }

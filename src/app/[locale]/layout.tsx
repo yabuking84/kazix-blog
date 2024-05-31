@@ -1,10 +1,12 @@
 import { Work_Sans } from "next/font/google"
-import  "@/assets/styles/scss/globals.scss"
+import "@/assets/styles/scss/globals.scss"
 import { Locale, i18n } from "@/i18n.config"
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import Footer from "@/components/layout/default/footer"
 import Header from "@/components/layout/default/header"
 import { useTranslations } from 'next-intl';
+import ClientThemeProvider from "@/components/layout/theme-provider";
+
 interface Props {
   params: { locale: Locale }
   children: React.ReactNode
@@ -64,7 +66,9 @@ export default function RootLayout({
         <body
           className={`${font.className} antialiased`}
           suppressHydrationWarning={true}>
-          <Header />
+          <ClientThemeProvider>
+            <Header />
+          </ClientThemeProvider>
           <main>
             {children}
           </main>

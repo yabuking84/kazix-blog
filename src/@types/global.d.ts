@@ -1,10 +1,14 @@
 import all from './resources';
- 
+
 type Messages = all['en'];
- 
+
 declare global {
   // Use type safe message keys with `next-intl`
-  interface IntlMessages extends Messages {}
+  interface IntlMessages extends Messages { }
+  interface Props {
+    children?: React.ReactNode;
+    className?: string;
+  }
 }
 
 declare module '*.svg' {
@@ -17,3 +21,5 @@ declare module '*.svg?url' {
   const content: any
   export default content
 }
+
+

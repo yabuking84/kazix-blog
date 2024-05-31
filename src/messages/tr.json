@@ -12,5 +12,10 @@
         "privacy-policy": "Gizlilik Politikası",
         "cookie-policy": "Çerez  Politikası",
         "about": "Hakkımızda"
-    }
+    },
+    "language-switcher": {
+        "language": "Dil",
+        "english": "English",
+        "turkish": "Türkçe"
+    }    
 }

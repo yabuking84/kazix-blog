@@ -1,8 +1,9 @@
+import TopNewsSection from "@/components/sections/home/top-news";
 
 export default function HomePage() {
   return (
-      <section>
-        <h1>home</h1>
-      </section>
+    <>
+      <TopNewsSection />
+    </>
   )
 }

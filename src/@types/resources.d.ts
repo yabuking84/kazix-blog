@@ -13,6 +13,11 @@ interface Resources {
       "privacy-policy": "Privacy Policy",
       "cookie-policy": "Cookie Policy",
       "about": "About"
+    },
+    "language-switcher": {
+      "language": "Language",
+      "english": "English",
+      "turkish": "Turkish"
     }
   },
   "tr": {
@@ -29,6 +34,11 @@ interface Resources {
       "privacy-policy": "Gizlilik Politikası",
       "cookie-policy": "Çerez  Politikası",
       "about": "Hakkımızda"
+    },
+    "language-switcher": {
+      "language": "Dil",
+      "english": "English",
+      "turkish": "Türkçe"
     }
   }
 }

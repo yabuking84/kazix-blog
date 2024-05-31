@@ -14,7 +14,7 @@ export default function Logo({
     const t = useTranslations('global');
     return (
         <div className={cn(['m-2 flex items-center', className])} >
-            <LogoSVG className="me-2" />
+            <LogoSVG className="text-4xl me-4 " />
             {t('site-title')}
         </div>
 
