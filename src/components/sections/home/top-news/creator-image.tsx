@@ -6,6 +6,7 @@ export default function CreatorImage(props: { src: string | undefined }) {
         <>
             {props.src ?
                 <Image className="object-cover rounded-full h-8 w-8"
+                    
                     src={props.src} alt="Image" width={30} height={30} />
                 : <UserSVG />}
         </>

@@ -11,6 +11,8 @@ export const lang: { title: string, code: Locale }[] = [
     { title: 'Turkish', code: 'tr' }
 ]
 
+export const localePrefix = 'as-needed'
+
 export type namespaces = 'global' | 'home'
 export type defaultNSType = 'global'
 export const defaultNS = 'global' 

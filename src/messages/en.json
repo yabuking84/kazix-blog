@@ -7,7 +7,8 @@
         "latest-news": "Latest News"
     },
     "blog":{
-        "top": "Top"
+        "top": "Top",
+        "latest-news": "Latest News"
     },
     "footer": {
         "terms-of-use": "Terms of Use",

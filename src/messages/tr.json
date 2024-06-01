@@ -7,7 +7,9 @@
         "latest-news": "Son Haberler"
     },
     "blog":{
-        "top": "İş Hayatı"
+        "top": "İş Hayatı",
+        "latest-news": "Son Haberler"
+
     },    
     "footer": {
         "terms-of-use": "Kullanıcı Sözleşmesi",

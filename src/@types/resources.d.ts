@@ -8,7 +8,8 @@ interface Resources {
       "latest-news": "Latest News"
     },
     "blog": {
-      "top": "Top"
+      "top": "Top",
+      "latest-news": "Latest News"
     },
     "footer": {
       "terms-of-use": "Terms of Use",
@@ -36,7 +37,8 @@ interface Resources {
       "latest-news": "Son Haberler"
     },
     "blog": {
-      "top": "İş Hayatı"
+      "top": "İş Hayatı",
+      "latest-news": "Son Haberler"
     },
     "footer": {
       "terms-of-use": "Kullanıcı Sözleşmesi",

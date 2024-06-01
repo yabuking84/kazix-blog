@@ -26,8 +26,6 @@ export default function LanguageSwitcher({ className, ...props }: Props) {
 
     const locale = params.locale
 
-    const pathname = usePathname()
-
     const langs: { [key in Locale]: { title: string, icon: ReactNode } } = {
         en: {
             title: t('language-switcher.english'),

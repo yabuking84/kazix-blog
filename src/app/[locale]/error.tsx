@@ -17,7 +17,7 @@ export default function Error({
   const t = useTranslations('error');
 
   return (
-    <div className='flex flex-col items-center justify-center p-8'>
+    <div className='flex flex-col items-center justify-center p-8  h-[calc(100svh-185px)]'>
       <h2 className='pb-4'>{t('text')}</h2>
       <Button
         onClick={

@@ -5,10 +5,19 @@ const imgTypes = ['apng', 'avif', 'gif', 'jpeg', 'jpg', 'png', 'svg', 'webp', 'b
 const news = z.object({
     article_id: z.string(),
     title: z.string(),
-    description: z.string(),
+    description: z.string().nullable()
+    .transform(val => {
+        if (!val || !val.length) return ""
+        return val
+    }),
     link: z.string().optional(),
     pubDate: z.string().optional(),
-    source_icon: z.string().optional(),
+    source_icon: z.string().nullable().optional(),
+    category: z.string().array().nullish()
+    .transform(val => {
+        if (!val || !val.length) return undefined
+        return val.map(e=>e.toLowerCase())
+    }),
     creator: z.string().array().nullish()
     .transform(val => {
         if (!val) return undefined
@@ -30,6 +39,7 @@ const newsResult = z.object({
     "totalResults": z.number({
         invalid_type_error: 'Invalid Total Results!'
     }),
+    nextPage: z.string().nullable(),
     results: z.array(news)
 })
 
