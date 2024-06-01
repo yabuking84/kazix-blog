@@ -7,6 +7,9 @@ interface Resources {
     "home": {
       "latest-news": "Latest News"
     },
+    "blog": {
+      "top": "Top"
+    },
     "footer": {
       "terms-of-use": "Terms of Use",
       "all-rights-reserved": "All Rights Reserved",
@@ -31,6 +34,9 @@ interface Resources {
     },
     "home": {
       "latest-news": "Son Haberler"
+    },
+    "blog": {
+      "top": "İş Hayatı"
     },
     "footer": {
       "terms-of-use": "Kullanıcı Sözleşmesi",

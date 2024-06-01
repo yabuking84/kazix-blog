@@ -12,7 +12,7 @@ import {
 import USASVG from "@/assets/svg/countries/usa.svg"
 import TurkeySVG from "@/assets/svg/countries/turkey.svg"
 import { useTranslations } from "next-intl"
-import { useParams } from "next/navigation"
+import { useParams, usePathname  } from "next/navigation"
 import type { Locale } from "@/i18n.config"
 import { ReactNode } from "react"
 import { cn } from "@/lib/utils"
@@ -25,6 +25,8 @@ export default function LanguageSwitcher({ className, ...props }: Props) {
     const params = useParams<{ locale: Locale }>()
 
     const locale = params.locale
+
+    const pathname = usePathname()
 
     const langs: { [key in Locale]: { title: string, icon: ReactNode } } = {
         en: {
@@ -44,12 +46,12 @@ export default function LanguageSwitcher({ className, ...props }: Props) {
                     <span className="text-2xl me-2">{langs[locale].icon}</span>
                     <span className="uppercase font-bold">{locale}</span>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="me-8 mt-4">
+                <DropdownMenuContent className="me-8 mt-5">
                     <DropdownMenuLabel>{t('language-switcher.language')}</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     {Object.entries(langs).map(([k, v]) => (
                         <DropdownMenuItem key={k} className="p-0">
-                            <Link className="flex items-center w-full px-2 py-2" href={'/'+k}>
+                            <Link locale={k} className="flex items-center w-full px-2 py-2" href={`/${k}`}>
                                 {v.icon} &nbsp;
                                 <span className="font-bold">{v.title}</span>
                             </Link>

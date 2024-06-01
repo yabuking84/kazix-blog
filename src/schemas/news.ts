@@ -8,7 +8,12 @@ const news = z.object({
     description: z.string(),
     link: z.string().optional(),
     pubDate: z.string().optional(),
-    creator: z.string().array().nullish(),
+    source_icon: z.string().optional(),
+    creator: z.string().array().nullish()
+    .transform(val => {
+        if (!val) return undefined
+        return val
+    }),
     image_url: z.string()
         .trim()
         .nullish()

@@ -7,7 +7,9 @@ import { useEffect, useMemo, useRef } from "react"
 import NextTopLoader from "nextjs-toploader";
 
 
+
 export default function Header() {
+
 
     const viewHolder = useRef(null)
     const isInView = useInView(viewHolder)
@@ -37,6 +39,8 @@ export default function Header() {
                 <NextTopLoader
                     color="#000"
                     showSpinner={false} />
+
+
                 <motion.div layout
                     initial={'hide'}
                     animate={'animateState'}

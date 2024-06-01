@@ -6,6 +6,9 @@
     "home": {
         "latest-news": "Son Haberler"
     },
+    "blog":{
+        "top": "İş Hayatı"
+    },    
     "footer": {
         "terms-of-use": "Kullanıcı Sözleşmesi",
         "all-rights-reserved": "Tüm Hakları Saklıdır",

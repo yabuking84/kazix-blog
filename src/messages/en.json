@@ -6,6 +6,9 @@
     "home": {
         "latest-news": "Latest News"
     },
+    "blog":{
+        "top": "Top"
+    },
     "footer": {
         "terms-of-use": "Terms of Use",
         "all-rights-reserved": "All Rights Reserved",

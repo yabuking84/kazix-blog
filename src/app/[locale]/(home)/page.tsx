@@ -1,11 +1,11 @@
-import TopNewsSection from "@/components/sections/home/top-news";
 import { Fetch } from "@/services/news/Fetch";
+import { PageState } from "./page-state";
 
 export default async function HomePage() {
-  const news = await Fetch.news();
+  const newsResult = await Fetch.news();
   return (
     <>
-      <TopNewsSection news={news} />
+      <PageState news={newsResult.results} />
     </>
   )
 }
