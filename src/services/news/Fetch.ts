@@ -15,6 +15,14 @@ export class Fetch {
      * @returns {NewsResultType}
      */
     static async news(locale: Locale, nextPage = ""): Promise<NewsResultType> {
+
+        // mock fetch here
+        //////////////////////////
+        // await waits(2000)
+        // return NewsResultSchema.parse(newsMockData)
+        //////////////////////////
+
+
         const options: RequestInit = api.options
         
         let params: { language: Locale, page?: string } = {
@@ -34,11 +42,6 @@ export class Fetch {
         const newsResult =  await res.json()
         return NewsResultSchema.parse(newsResult);
          
-        // mock fetch here
-        //////////////////////////
-        // await waits(2000)
-        // return NewsResultSchema.parse(newsMockData)
-        //////////////////////////
 
     }
     /**
@@ -46,6 +49,13 @@ export class Fetch {
      * @returns {NewsResultType}
      */
     static async article(locale:Locale, articleId: string): Promise<NewsType> {
+        
+        // mock fetch here
+        //////////////////////////
+        // await waits(2000)
+        // return NewsSchema.parse(articleMockData)
+        //////////////////////////
+
         const options: RequestInit = api.options
         
         let params: { id: string } = {
@@ -61,12 +71,6 @@ export class Fetch {
         const newsResult =  await res.json()
         const parsedRes =  NewsResultSchema.parse(newsResult);
         return NewsSchema.parse(parsedRes.results[0])
-        
-        // mock fetch here
-        //////////////////////////
-        // await waits(2000)
-        // return NewsSchema.parse(articleMockData)
-        //////////////////////////
 
     }
 }

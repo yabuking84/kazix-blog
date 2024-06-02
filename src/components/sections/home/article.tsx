@@ -9,9 +9,9 @@ export default function Article(props: { news: NewsType }) {
     return (
         <section className="py-8">
             <div className="container px-0">
-                <div className="h-full flex flex-col p-2 py-4 min-h-[calc(100svh-185px)]">
+                <div className="h-full flex flex-col p-2 py-4 min-h-[calc(80svh-185px)]">
                     <Pill text={props.news.category?.[0]} />
-                    <p className="text-[30px] font-bold leading-tight mb-6 flex-grow ">
+                    <p className="text-[30px] font-bold leading-tight mb-6 ">
                         {props.news.title}
                     </p>
                     <div className="flex items-center space-x-4 mb-6 text-primary">
