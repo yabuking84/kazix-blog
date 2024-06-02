@@ -26,18 +26,18 @@ export class Fetch {
         };
         const paramsUrl = new URLSearchParams(params)
         
-        // const res = await fetch(`${api.news.latest}&${paramsUrl}`, options)
-        // if (!res.ok) {
-        //     // This will activate the closest `error.js` Error Boundary
-        //     throw new Error('Failed to fetch data')
-        // }
-        // const newsResult =  await res.json()
-        // return NewsResultSchema.parse(newsResult);
+        const res = await fetch(`${api.news.latest}&${paramsUrl}`, options)
+        if (!res.ok) {
+            // This will activate the closest `error.js` Error Boundary
+            throw new Error('Failed to fetch data')
+        }
+        const newsResult =  await res.json()
+        return NewsResultSchema.parse(newsResult);
          
         // mock fetch here
         //////////////////////////
-        await waits(2000)
-        return NewsResultSchema.parse(newsMockData)
+        // await waits(2000)
+        // return NewsResultSchema.parse(newsMockData)
         //////////////////////////
 
     }
@@ -52,19 +52,19 @@ export class Fetch {
             id: articleId
         }
         const paramsUrl = new URLSearchParams(params)
-        // const res = await fetch(`${api.news.article}?`+paramsUrl, options)
-        // if (!res.ok) {
-        //     // This will activate the closest `error.js` Error Boundary
-        //     throw new Error('Failed to fetch data')
-        // }
-        // const newsResult =  await res.json()
-        // const parsedRes =  NewsResultSchema.parse(newsResult);
-        // return NewsSchema.parse(parsedRes.results[0])
+        const res = await fetch(`${api.news.article}?`+paramsUrl, options)
+        if (!res.ok) {
+            // This will activate the closest `error.js` Error Boundary
+            throw new Error('Failed to fetch data')
+        }
+        const newsResult =  await res.json()
+        const parsedRes =  NewsResultSchema.parse(newsResult);
+        return NewsSchema.parse(parsedRes.results[0])
         
         // mock fetch here
         //////////////////////////
-        await waits(2000)
-        return NewsSchema.parse(articleMockData)
+        // await waits(2000)
+        // return NewsSchema.parse(articleMockData)
         //////////////////////////
 
     }
