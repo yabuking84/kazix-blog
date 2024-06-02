@@ -52,6 +52,7 @@ export class Fetch {
             id: articleId
         }
         const paramsUrl = new URLSearchParams(params)
+
         const res = await fetch(`${api.news.article}?`+paramsUrl, options)
         if (!res.ok) {
             // This will activate the closest `error.js` Error Boundary

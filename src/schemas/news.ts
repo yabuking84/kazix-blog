@@ -10,6 +10,13 @@ const news = z.object({
             if (!val || !val.length) return ""
             return val
         }),
+    content: z.string()
+        .transform(val => {
+            if (!val || val.includes('ONLY AVAILABLE IN PAID PLANS'))
+                return 'no-content'
+            else
+                return val
+        }),
     link: z.string().optional(),
     pubDate: z.string().optional(),
     source_icon: z.string().nullable().optional()

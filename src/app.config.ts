@@ -6,7 +6,7 @@ export const app = {
 
 export const api = {
     news: {
-        latest: `https://newsdata.io/api/1/latest?image=1&size=${app.allNews.maxSize}`,
+        latest: `https://newsdata.io/api/1/latest?prioritydomain=top&image=1&size=${app.allNews.maxSize}`,
         article: 'https://newsdata.io/api/1/latest'
     },
     options: {

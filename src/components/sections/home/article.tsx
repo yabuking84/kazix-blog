@@ -17,12 +17,12 @@ export default function Article(props: { news: NewsType }) {
                     <div className="flex items-center space-x-4 mb-6 text-primary">
                         <CreatorImage src={props.news.source_icon} />
                         <Creators creators={props.news.creator} />
-                    </div>                    
+                    </div>
                     <PublishDate className="mb-16 lg:mb-10" date={props.news.pubDate} />
                     <ArticleImage className="mb-16 lg:mb-10" src={props.news.image_url} />
                     <p className="">
-                        {props.news.description}
-                    </p>                    
+                        {props.news.content === 'no-content' ? props.news.description : props.news.content}
+                    </p>
 
                 </div>
             </div>
