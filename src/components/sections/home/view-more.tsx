@@ -30,7 +30,7 @@ export default function ViewMore() {
 
     const isLoading = useMemo(()=>newsStore.store.status==='loading',[newsStore.store.status])
     return (
-        <section className="py-8 mb-20">
+        <section className="py-8 pb-20 relative">
             <div className="container px-0 flex justify-center">
                 <Button onClick={viewMore} 
                 disabled={isLoading}

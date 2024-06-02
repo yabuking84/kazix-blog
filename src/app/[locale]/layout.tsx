@@ -71,7 +71,7 @@ export default function RootLayout({
             <ClientThemeProvider>
               <Header />
             </ClientThemeProvider>
-            <main>
+            <main className="relative">
               {children}
             </main>
             <Footer locale={locale} />

@@ -1,0 +1,23 @@
+.circle {
+    overflow: hidden;
+
+    border-radius: 100%;
+
+    z-index: -1;
+    display: none;
+
+    @media (min-width: 640px) {
+
+    }
+
+    @media (min-width: 768px) {
+     
+    }
+
+    @media (min-width: 1024px) {
+        position: absolute;
+        display: block;
+    }
+
+    @media (min-width: 1280px) {}
+}

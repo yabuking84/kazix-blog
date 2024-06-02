@@ -1,5 +1,6 @@
 "use client"
 
+import Circle from "@/components/common/circle";
 import LatestNews from "@/components/sections/home/latest-news";
 import TopNewsSection from "@/components/sections/home/top-news";
 import ViewMore from "@/components/sections/home/view-more";
@@ -8,8 +9,8 @@ import { useActions } from "@/store/news/hooks";
 
 interface Props {
   payload: {
-    newsResult:NewsResultType,
-  } 
+    newsResult: NewsResultType,
+  }
 }
 
 /**
