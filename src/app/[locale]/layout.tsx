@@ -31,7 +31,7 @@ export default function RootLayout({
 
   const messages = useMessages();
 
-  const logo = `${process.env['NEXT_PUBLIC_HOST']}/kazix-blog-logo.png`
+  const logo = `${process.env['NEXT_PUBLIC_HOST']}/kazix-blog-og.png`
   const host = process.env['NEXT_PUBLIC_HOST']
 
   return (
