@@ -10,7 +10,7 @@ export default async function Footer(props: { locale: Locale }) {
 
     return (
         <footer className="border-t bg-secondary">
-            <FadeIn className=" container text-center py-6 px-0 text-lg">
+            <FadeIn className=" container text-center py-6 px-3 lg:px-0 text-lg">
                 <div className="'m-2 px-2 flex flex-col items-start'" >
                     <div className='text-start my-16'>
                         <h2 className='font-bold text-xl mb-4'>{tFooter('about')}</h2>
