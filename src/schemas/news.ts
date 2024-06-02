@@ -6,23 +6,27 @@ const news = z.object({
     article_id: z.string(),
     title: z.string(),
     description: z.string().nullable()
-    .transform(val => {
-        if (!val || !val.length) return ""
-        return val
-    }),
+        .transform(val => {
+            if (!val || !val.length) return ""
+            return val
+        }),
     link: z.string().optional(),
     pubDate: z.string().optional(),
-    source_icon: z.string().nullable().optional(),
+    source_icon: z.string().nullable().optional()
+        .transform(val => {
+            if (!val) return 'no-image'
+            return val
+        }),
     category: z.string().array().nullish()
-    .transform(val => {
-        if (!val || !val.length) return undefined
-        return val.map(e=>e.toLowerCase())
-    }),
+        .transform(val => {
+            if (!val || !val.length) return undefined
+            return val.map(e => e.toLowerCase())
+        }),
     creator: z.string().array().nullish()
-    .transform(val => {
-        if (!val) return undefined
-        return val
-    }),
+        .transform(val => {
+            if (!val) return undefined
+            return val
+        }),
     image_url: z.string()
         .trim()
         .nullish()

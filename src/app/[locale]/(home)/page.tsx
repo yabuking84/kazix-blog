@@ -6,7 +6,7 @@ export default async function HomePage(props: { params: { locale: Locale } }) {
   const newsResult = await Fetch.news(props.params.locale);
   return (
     <>
-      <PageState news={newsResult.results} />
+      <PageState payload={{ newsResult: newsResult }} />
     </>
   )
 }

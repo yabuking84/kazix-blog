@@ -1,24 +1,38 @@
-import { NewsType } from "@/schemas/news";
+import { NewsResultType, NewsType } from "@/schemas/news";
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "..";
+import { app } from "@/app.config";
 
 interface State {
-    news: NewsType[];
+    news: NewsType[]
+    nextPage: string
     status: 'loading' | 'succeeded' | 'failed' | 'idle'
 }
 
 
 const initState: State = {
     news: [],
+    nextPage: '',
     status: 'idle',
 };
 
 const slice = createSlice({
-    name: 'auth',
+    name: 'news',
     initialState: initState,
     reducers: {
-        setNews(state, { payload }: { payload: NewsType[] }) {
-            state.news = payload
+        setNews(state, { payload }: { payload:  NewsResultType }) {
+            state.news = payload.results
+            state.nextPage = payload.nextPage || ''
+        },
+        addNews(state, { payload }: { payload:  NewsResultType }) {
+            state.news = [
+                ...state.news,
+                ...payload.results
+            ]
+            state.nextPage = payload.nextPage || ''
+        },
+        setStatus(state, { payload }: { payload:  State['status'] }) {
+            state.status = payload 
         },
     },
 })
@@ -27,7 +41,7 @@ const slice = createSlice({
 const selectTopNews = createSelector([(state: RootState) => state.news], (state) => {
     const tops = []
     const len = state.news.length
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < app.topNews.count; i++) {
         if (i >= len) break
         tops.push(state.news[i])
     }
@@ -37,7 +51,7 @@ const selectTopNews = createSelector([(state: RootState) => state.news], (state)
 const latestNews = createSelector([(state: RootState) => state.news], (state) => {
     const ret = []
     const len = state.news.length
-    for (let i = 2; i < len; i++) {
+    for (let i = app.topNews.count; i < len; i++) {
         if (i >= len) break
         ret.push(state.news[i])
     }

@@ -5,7 +5,7 @@ export default function Loading() {
 
     const arr = (new Array(6)).fill(null)
     return (
-        <div className="container py-4 flex flex-col justify-center">
+        <div className="container py-8 flex flex-col justify-center">
             <div className="flex flex-col space-y-3 w-full mb-32">
                 <Skeleton className="h-[300px] lg:h-[400px] w-full rounded-xl" />
                 <div className="space-y-2">

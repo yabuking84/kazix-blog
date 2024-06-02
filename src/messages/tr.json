@@ -1,22 +1,20 @@
 {
     "global": {
         "site-desc": "Şimdiye Kadarki En İyi Haber Blogu!",
-        "site-title": "Kazix Blog"
-    },
-    "home": {
-        "latest-news": "Son Haberler"
+        "site-title": "Blog"
     },
     "blog":{
         "top": "İş Hayatı",
-        "latest-news": "Son Haberler"
-
+        "latest-news": "Son Haberler",
+        "view-more": "Daha fazla göster"
     },    
     "footer": {
         "terms-of-use": "Kullanıcı Sözleşmesi",
         "all-rights-reserved": "Tüm Hakları Saklıdır",
         "privacy-policy": "Gizlilik Politikası",
         "cookie-policy": "Çerez  Politikası",
-        "about": "Hakkımızda"
+        "about": "Hakkımızda",
+        "text" : "Bu hakkımızda bir metin. Lorem Ipsum yerine bunu yazacağım. Biraz uzun bir metne ihtiyacım var, işte başlıyoruz."
     },
     "language-switcher": {
         "language": "Dil",

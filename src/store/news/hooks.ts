@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { slice, selectTopNews, latestNews } from "./slice";
-import { NewsType } from "@/schemas/news";
+import { slice, selectTopNews, latestNews, State } from "./slice";
+import { NewsResultType, NewsType } from "@/schemas/news";
 
 
 const useStore = () => {
@@ -16,8 +16,14 @@ const useActions = () => {
     const dispatch = useAppDispatch()
     const actions = slice.actions;
     return {
-        setNews(news: NewsType[]) {
-            dispatch(actions.setNews(news))
+        setNews(newsResult: NewsResultType) {
+            dispatch(actions.setNews(newsResult))
+        },
+        addNews(newsResult: NewsResultType) {
+            dispatch(actions.addNews(newsResult))
+        },
+        setStatus(status: State['status']) {
+            dispatch(actions.setStatus(status))
         }
     }
 }

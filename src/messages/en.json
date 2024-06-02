@@ -1,28 +1,27 @@
 {
     "global": {
         "site-desc": "Best News Blog Ever!",
-        "site-title": "Kazix Blog"
+        "site-title": "Blog"
     },
-    "home": {
-        "latest-news": "Latest News"
-    },
-    "blog":{
+    "blog": {
         "top": "Top",
-        "latest-news": "Latest News"
+        "latest-news": "Latest News",
+        "view-more": "View more"
     },
     "footer": {
         "terms-of-use": "Terms of Use",
         "all-rights-reserved": "All Rights Reserved",
         "privacy-policy": "Privacy Policy",
         "cookie-policy": "Cookie Policy",
-        "about": "About"
+        "about": "About",
+        "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
     },
     "language-switcher": {
         "language": "Language",
         "english": "English",
         "turkish": "Turkish"
     },
-    "error":{
+    "error": {
         "text": "Something went wrong!",
         "button": "Try again"
     }

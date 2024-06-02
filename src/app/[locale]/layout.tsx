@@ -31,8 +31,8 @@ export default function RootLayout({
 
   const messages = useMessages();
 
-  const logo = `${process.env['HOST']}/kazix-blog-logo.png`
-  const host = process.env['HOST']
+  const logo = `${process.env['NEXT_PUBLIC_HOST']}/kazix-blog-logo.png`
+  const host = process.env['NEXT_PUBLIC_HOST']
 
   return (
     <html lang={locale} suppressHydrationWarning={true}>
@@ -74,7 +74,7 @@ export default function RootLayout({
             <main>
               {children}
             </main>
-            <Footer />
+            <Footer locale={locale} />
             <div id="modal-section" />
           </body>
         </StoreProvider>

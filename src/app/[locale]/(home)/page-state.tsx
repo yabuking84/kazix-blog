@@ -2,11 +2,14 @@
 
 import LatestNews from "@/components/sections/home/latest-news";
 import TopNewsSection from "@/components/sections/home/top-news";
-import { NewsType } from "@/schemas/news";
+import ViewMore from "@/components/sections/home/view-more";
+import { NewsResultType, NewsType } from "@/schemas/news";
 import { useActions } from "@/store/news/hooks";
 
 interface Props {
-  news: NewsType[]
+  payload: {
+    newsResult:NewsResultType,
+  } 
 }
 
 /**
@@ -19,12 +22,13 @@ export function PageState(props: Props) {
 
   // set news store here
   const newsActions = useActions();
-  newsActions.setNews(props.news)
+  newsActions.setNews(props.payload.newsResult)
 
   return (
     <>
       <TopNewsSection />
       <LatestNews />
+      <ViewMore />
     </>
   )
 }

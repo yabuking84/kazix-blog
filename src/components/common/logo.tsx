@@ -20,9 +20,11 @@ export default function Logo({
     const params = useParams<{ locale: Locale }>()
     return (
         <div className={cn(['m-2 flex items-center', className])} >
-            <Link className="flex items-center" href={'/' + params.locale}>
+            <Link className="flex items-center " href={'/' + params.locale}>
                 <LogoSVG className="text-4xl me-4 " />
-                {t('site-title')}
+                <span className="font-bold text-2xl">
+                    {t('site-title')}
+                </span>
             </Link>
         </div>
 
