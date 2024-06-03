@@ -3,13 +3,12 @@ import { PageState } from "./page-state";
 import { Locale } from "@/i18n.config";
 import Image from "next/image";
 
-import BgImage from "@PUBLIC/bg-image.png"
-import BgImageMobile from "@PUBLIC/bg-image-mobile.png"
+import BgImage from "@PUBLIC/bg-image.png";
+import BgImageMobile from "@PUBLIC/bg-image-mobile.png";
 
 import LatestNews from "@/components/sections/home/latest-news";
 import TopNewsSection from "@/components/sections/home/top-news";
 import ViewMore from "@/components/sections/home/view-more";
-import { Getters } from "@/services/news/Getters";
 
 export default async function HomePage(props: { params: { locale: Locale } }) {
   const newsResult = await Fetch.news(props.params.locale);
