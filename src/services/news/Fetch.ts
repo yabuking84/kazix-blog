@@ -8,12 +8,8 @@ import { api } from "@/app.config";
 
 
 
-
 export class Fetch {
-    /**
-     * this will be cached by next so can be called anywhere
-     * @returns {NewsResultType}
-     */
+
     static async news(locale: Locale, nextPage = ""): Promise<NewsResultType> {
 
         // mock fetch here
@@ -24,7 +20,7 @@ export class Fetch {
 
 
         const options: RequestInit = api.options
-        
+
         let params: { language: Locale, page?: string } = {
             language: locale,
         }
@@ -33,23 +29,20 @@ export class Fetch {
             page: nextPage
         };
         const paramsUrl = new URLSearchParams(params)
-        
+
         const res = await fetch(`${api.news.latest}&${paramsUrl}`, options)
         if (!res.ok) {
             // This will activate the closest `error.js` Error Boundary
             throw new Error('Failed to fetch data')
         }
-        const newsResult =  await res.json()
+        const newsResult = await res.json()
         return NewsResultSchema.parse(newsResult);
-         
+
 
     }
-    /**
-     * this will be cached by next so can be called anywhere
-     * @returns {NewsResultType}
-     */
-    static async article(locale:Locale, articleId: string): Promise<NewsType> {
-        
+
+    static async article(locale: Locale, articleId: string): Promise<NewsType> {
+
         // mock fetch here
         //////////////////////////
         // await waits(2000)
@@ -57,19 +50,19 @@ export class Fetch {
         //////////////////////////
 
         const options: RequestInit = api.options
-        
+
         let params: { id: string } = {
             id: articleId
         }
         const paramsUrl = new URLSearchParams(params)
 
-        const res = await fetch(`${api.news.article}?`+paramsUrl, options)
+        const res = await fetch(`${api.news.article}?` + paramsUrl, options)
         if (!res.ok) {
             // This will activate the closest `error.js` Error Boundary
             throw new Error('Failed to fetch data')
         }
-        const newsResult =  await res.json()
-        const parsedRes =  NewsResultSchema.parse(newsResult);
+        const newsResult = await res.json()
+        const parsedRes = NewsResultSchema.parse(newsResult);
         return NewsSchema.parse(parsedRes.results[0])
 
     }
