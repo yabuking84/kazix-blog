@@ -1,7 +1,7 @@
 import { NewsResultType, NewsType } from "@/schemas/news";
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "..";
-import { app } from "@/app.config";
+import { Getters } from "@/services/news/Getters";
 
 interface State {
     news: NewsType[]
@@ -38,24 +38,12 @@ const slice = createSlice({
 })
 
 
-const selectTopNews = createSelector([(state: RootState) => state.news], (state) => {
-    const tops = []
-    const len = state.news.length
-    for (let i = 0; i < app.topNews.count; i++) {
-        if (i >= len) break
-        tops.push(state.news[i])
-    }
-    return tops;
+const topNews = createSelector([(state: RootState) => state.news], (state) => {
+    return Getters.topNews(state.news)
 })
 
 const latestNews = createSelector([(state: RootState) => state.news], (state) => {
-    const ret = []
-    const len = state.news.length
-    for (let i = app.topNews.count; i < len; i++) {
-        if (i >= len) break
-        ret.push(state.news[i])
-    }
-    return ret;
+    return Getters.latestNews(state.news)
 })
 
 
@@ -63,6 +51,6 @@ const latestNews = createSelector([(state: RootState) => state.news], (state) =>
 export {
     type State,
     slice,
-    selectTopNews,
+    topNews,
     latestNews
 }

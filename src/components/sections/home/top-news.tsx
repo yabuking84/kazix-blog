@@ -30,7 +30,6 @@ export default function TopNewsSection(props: Props) {
     const [api, setApi] = useState<CarouselApi>()
     const params = useParams<{ locale: Locale }>()
 
-
     const { topNews } = useStore()
     return (
         <section className="py-8">

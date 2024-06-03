@@ -1,6 +1,7 @@
 "use client"
 
 import Spinner from "@/components/common/spinner";
+import FadeIn from "@/components/transitions/fadein";
 import { Button } from "@/components/ui/button";
 import { Locale } from "@/i18n.config";
 import { Fetch } from "@/services/news/Fetch";
@@ -11,7 +12,6 @@ import { useMemo } from "react";
 
 export default function ViewMore() {
     const params = useParams<{ locale: Locale }>()
-
     const newsStore = useStore();
     const newsActions = useActions();
 
@@ -28,16 +28,18 @@ export default function ViewMore() {
 
     const t = useTranslations('blog')
 
-    const isLoading = useMemo(()=>newsStore.store.status==='loading',[newsStore.store.status])
+    const isLoading = useMemo(() => newsStore.store.status === 'loading', [newsStore.store.status])
     return (
         <section className="py-8 pb-20 relative">
             <div className="container px-0 flex justify-center">
-                <Button onClick={viewMore} 
-                disabled={isLoading}
-                className="px-8 py-6" variant={'outline'}>
-                    {t('view-more')}
-                    {isLoading? <Spinner className="ms-4" /> : null}
-                </Button>
+                <FadeIn>
+                    <Button onClick={viewMore}
+                        disabled={isLoading}
+                        className="px-8 py-6" variant={'outline'}>
+                        {t('view-more')}
+                        {isLoading ? <Spinner className="ms-4" /> : null}
+                    </Button>
+                </FadeIn>
             </div>
         </section>
     )
