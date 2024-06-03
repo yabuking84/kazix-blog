@@ -14,9 +14,9 @@ export default async function HomePage(props: { params: { locale: Locale } }) {
   const newsResult = await Fetch.news(props.params.locale);
   return (
     <>
-      <div className="absolute top-0 z-0 overflow-clip w-full h-full">
+      <div className="absolute top-0 z-0 overflow-clip w-full h-full dark:hidden">
         <Image className="object-cover w-full lg:hidden" src={BgImageMobile} alt="Bg Image" />
-        <Image className="object-cover w-full  blur-sm hidden lg:block" src={BgImage} alt="Bg Image" />
+        <Image className="object-cover w-full hidden lg:block" src={BgImage} alt="Bg Image" />
       </div>
 
       <PageState payload={{ newsResult: newsResult }}>
