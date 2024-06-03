@@ -1,6 +1,9 @@
+import articleMockData  from '@/mocks/article.json';
+import newsMockData  from '@/mocks/news.json';
 import { NewsResultSchema, type NewsResultType, NewsSchema, NewsType } from "@/schemas/news";
 import { Locale } from "@/i18n.config";
 import { api } from "@/app.config";
+import { waits } from "@/lib/utils";
 
 
 export class Fetch {
@@ -59,6 +62,5 @@ export class Fetch {
         const newsResult = await res.json()
         const parsedRes = NewsResultSchema.parse(newsResult);
         return NewsSchema.parse(parsedRes.results[0])
-
     }
 }

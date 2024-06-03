@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { slice, selectTopNews, latestNews, State } from "./slice";
+import { slice, topNews, latestNews, State } from "./slice";
 import { NewsResultType, NewsType } from "@/schemas/news";
 
 
@@ -7,7 +7,7 @@ const useStore = () => {
 
     return {
         store: useAppSelector((state) => state.news),
-        topNews: useAppSelector(selectTopNews),
+        topNews: useAppSelector(topNews),
         latestNews: useAppSelector(latestNews),
     }
 }
