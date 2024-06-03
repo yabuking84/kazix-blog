@@ -1,10 +1,9 @@
 "use client"
 
-import Circle from "@/components/common/circle";
 import LatestNews from "@/components/sections/home/latest-news";
 import TopNewsSection from "@/components/sections/home/top-news";
 import ViewMore from "@/components/sections/home/view-more";
-import { NewsResultType, NewsType } from "@/schemas/news";
+import { NewsResultType } from "@/schemas/news";
 import { useActions } from "@/store/news/hooks";
 
 interface Props {
@@ -14,8 +13,9 @@ interface Props {
 }
 
 /**
- * This will set data from server components to redux so 
- * client components can access it
+ * - All Components here will always be client components. 
+ * - If you want to use server components put it on page.tsx
+ * - will set data from server components to redux first so client components can access it
  * @param props 
  * @returns 
  */
