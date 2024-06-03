@@ -2,6 +2,11 @@ import { z } from 'zod'
 
 const imgTypes = ['apng', 'avif', 'gif', 'jpeg', 'jpg', 'png', 'svg', 'webp', 'bmp', 'ico', 'tiff']
 
+const noImage = (val:string | null | undefined) => {
+    if (!val) return 'no-image'
+    return val
+}
+
 const news = z.object({
     article_id: z.string(),
     title: z.string(),
@@ -20,10 +25,7 @@ const news = z.object({
     link: z.string().optional(),
     pubDate: z.string().optional(),
     source_icon: z.string().nullable().optional()
-        .transform(val => {
-            if (!val) return 'no-image'
-            return val
-        }),
+        .transform(noImage),
     category: z.string().array().nullish()
         .transform(val => {
             if (!val || !val.length) return undefined
@@ -37,10 +39,7 @@ const news = z.object({
     image_url: z.string()
         .trim()
         .nullish()
-        .transform(val => {
-            if (!val) return 'no-image'
-            return val
-        })
+        .transform(noImage)
 })
 
 const newsResult = z.object({
