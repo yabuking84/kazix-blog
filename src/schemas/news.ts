@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-const imgTypes = ['apng', 'avif', 'gif', 'jpeg', 'jpg', 'png', 'svg', 'webp', 'bmp', 'ico', 'tiff']
+// const imgTypes = ['apng', 'avif', 'gif', 'jpeg', 'jpg', 'png', 'svg', 'webp', 'bmp', 'ico', 'tiff']
 
 const noImage = (val:string | null | undefined) => {
     if (!val) return 'no-image'

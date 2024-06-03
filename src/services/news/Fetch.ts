@@ -1,11 +1,6 @@
-import { waits } from "@/lib/utils";
-import newsMockData from "@/mocks/news.json";
-import articleMockData from "@/mocks/article.json";
 import { NewsResultSchema, type NewsResultType, NewsSchema, NewsType } from "@/schemas/news";
 import { Locale } from "@/i18n.config";
 import { api } from "@/app.config";
-
-
 
 
 export class Fetch {
