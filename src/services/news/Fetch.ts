@@ -12,8 +12,8 @@ export class Fetch {
 
         // mock fetch here
         //////////////////////////
-        // await waits(2000)
-        // return NewsResultSchema.parse(newsMockData)
+        await waits(2000)
+        return NewsResultSchema.parse(newsMockData)
         //////////////////////////
 
 
@@ -43,8 +43,8 @@ export class Fetch {
 
         // mock fetch here
         //////////////////////////
-        // await waits(2000)
-        // return NewsSchema.parse(articleMockData)
+        await waits(2000)
+        return NewsSchema.parse(articleMockData)
         //////////////////////////
 
         const options: RequestInit = api.options
