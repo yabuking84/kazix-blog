@@ -49,7 +49,7 @@ export default function LanguageSwitcher({ className, ...props }: Props) {
                     <DropdownMenuSeparator />
                     {Object.entries(langs).map(([k, v]) => (
                         <DropdownMenuItem key={k} className="p-0">
-                            <Link locale={k} className="flex items-center w-full px-2 py-2" href={`/${k}`}>
+                            <Link className="flex items-center w-full px-2 py-2" href={`/${k}`}>
                                 {v.icon} &nbsp;
                                 <span className="font-bold">{v.title}</span>
                             </Link>
