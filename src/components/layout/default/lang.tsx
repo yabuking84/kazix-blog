@@ -23,7 +23,7 @@ export default function LanguageSwitcher({ className, ...props }: Props) {
     const t = useTranslations()
     const locale = useLocale() as Locale;
 
-    const params = useParams<{ locale: Locale }>()
+    const params = useParams()
     const router = useRouter();
     const pathname = usePathname();
 

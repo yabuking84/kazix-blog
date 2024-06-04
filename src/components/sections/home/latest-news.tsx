@@ -6,15 +6,14 @@ import Creators from "./top-news/creators";
 import PublishDate from "./top-news/publish-date";
 import { useStore } from "@/store/news/hooks";
 import ArticleImage from "./top-news/article-image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import { Locale } from "@/i18n.config";
 import FadeIn from "@/components/transitions/fadein";
 
 export default function LatestNews() {
     const { latestNews } = useStore()
-    const params = useParams<{ locale: Locale }>()
+    const locale = useLocale() as Locale;
     const t = useTranslations('blog');
     return (
         <section className="py-8">
@@ -26,7 +25,7 @@ export default function LatestNews() {
                     {latestNews.map(e => (
                         <FadeIn key={e.article_id}>
                             <Link
-                                locale={params.locale}
+                                locale={locale}
                                 href={{
                                     pathname: '/article/' + e.article_id,
                                 }} >

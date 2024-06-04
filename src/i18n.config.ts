@@ -13,7 +13,6 @@ export const lang: { title: string, code: Locale }[] = [
 ]
 
 export const localePrefix = 'as-needed'
-export const localeMatcher = '/(en|tr)/:path*'
 
 
 export const pathnames = {
