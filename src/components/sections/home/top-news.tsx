@@ -19,7 +19,6 @@ import PublishDate from "./top-news/publish-date";
 import CreatorImage from "./top-news/creator-image";
 import Pill from "./top-news/pill";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import { Locale } from "@/i18n.config";
 
 interface Props extends ComponentProps<'section'> { }

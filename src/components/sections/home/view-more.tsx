@@ -6,19 +6,18 @@ import { Button } from "@/components/ui/button";
 import { Locale } from "@/i18n.config";
 import { Fetch } from "@/services/news/Fetch";
 import { useActions, useStore } from "@/store/news/hooks";
-import { useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { useMemo } from "react";
 
 export default function ViewMore() {
-    const params = useParams<{ locale: Locale }>()
     const newsStore = useStore();
     const newsActions = useActions();
+    const locale = useLocale() as Locale;
 
     const viewMore = async () => {
         try {
             newsActions.setStatus('loading')
-            const newsResult = await Fetch.news(params.locale, newsStore.store.nextPage);
+            const newsResult = await Fetch.news(locale, newsStore.store.nextPage);
             newsActions.setStatus('succeeded')
             newsActions.addNews(newsResult)
         } catch (error) {
