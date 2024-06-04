@@ -1,5 +1,5 @@
-import articleMockData  from '@/mocks/article.json';
-import newsMockData  from '@/mocks/news.json';
+import articleMockData from '@/mocks/article.json';
+import newsMockData from '@/mocks/news.json';
 import { NewsResultSchema, type NewsResultType, NewsSchema, NewsType } from "@/schemas/news";
 import { Locale } from "@/i18n.config";
 import { api } from "@/app.config";
@@ -12,8 +12,10 @@ export class Fetch {
 
         // mock fetch here
         //////////////////////////
-        // await waits(2000)
-        // return NewsResultSchema.parse(newsMockData)
+        if (process.env.NEXT_PUBLIC_MOCK_API) {
+            await waits(2000)
+            return NewsResultSchema.parse(newsMockData)
+        }
         //////////////////////////
 
 
@@ -43,8 +45,10 @@ export class Fetch {
 
         // mock fetch here
         //////////////////////////
-        // await waits(2000)
-        // return NewsSchema.parse(articleMockData)
+        if (process.env.NEXT_PUBLIC_MOCK_API) {
+            await waits(2000)
+            return NewsSchema.parse(articleMockData)
+        }
         //////////////////////////
 
         const options: RequestInit = api.options
