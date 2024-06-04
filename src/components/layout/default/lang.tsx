@@ -64,7 +64,7 @@ export default function LanguageSwitcher({ className, ...props }: Props) {
                     <DropdownMenuLabel>{t('language-switcher.language')}</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     {Object.entries(langs).map(([k, v]) => (
-                        <DropdownMenuItem key={k} className="p-0">
+                        <DropdownMenuItem disabled={isPending} key={k} className="p-0">
                             <p onClick={() => onSelect((k as Locale))}
                                 className="cursor-pointer flex items-center w-full px-2 py-2">
                                 {v.icon} &nbsp;
