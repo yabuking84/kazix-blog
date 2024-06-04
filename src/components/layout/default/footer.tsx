@@ -20,7 +20,7 @@ export default async function Footer(props: { locale: Locale }) {
                     <div className='border-b w-full mb-12 lg:mb-6'></div>
 
                     <div className='lg:flex lg:justify-between'>
-                        <Link className="flex items-center" href={'/' + props.locale}>
+                        <Link locale={props.locale} className="flex items-center" href={'/' + props.locale}>
                             <LogoSVG className="text-6xl me-4 " />
                             <div className='flex flex-col items-start'>
                                 <span className="font-bold text-2xl">
