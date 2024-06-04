@@ -3,11 +3,10 @@
 import { Button } from "@/components/ui/button";
 import { CarouselApi } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
-import { ReactNode, useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function SliderButtons(props: { api: CarouselApi, className?: string }) {
     const [current, setCurrent] = useState(0)
-    const [count, setCount] = useState(0)
     const [buttons, setButtons] = useState<string[]>([])
 
 
@@ -19,11 +18,8 @@ export default function SliderButtons(props: { api: CarouselApi, className?: str
     useEffect(() => {
         if (!props.api) return
         const len = props.api.scrollSnapList().length
-        setCount(len)
         setCurrent(props.api.selectedScrollSnap() + 1)
-
         setButtons(() => (new Array(len)).fill('button'))
-
         props.api.on("select", () => {
             if (!props.api) return
             setCurrent(props.api.selectedScrollSnap() + 1)
