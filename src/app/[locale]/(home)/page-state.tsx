@@ -2,14 +2,10 @@
 
 import { NewsResultType } from "@/schemas/news";
 import { useActions } from "@/store/news/hooks";
-
-
-import LatestNews from "@/components/sections/home/latest-news";
-import TopNewsSection from "@/components/sections/home/top-news";
-import ViewMore from "@/components/sections/home/view-more";
-
+import { ReactNode } from "react";
 
 interface Props {
+  children: ReactNode
   payload: {
     newsResult: NewsResultType,
   }
@@ -17,7 +13,6 @@ interface Props {
 
 /**
  * Sets data from server components to redux first so client components can access it
- * This is for client components only
  * @param props 
  * @returns 
  */
@@ -29,9 +24,7 @@ export function PageState(props: Props) {
 
   return (
     <>
-      <TopNewsSection />
-      <LatestNews />
-      <ViewMore />
+      {props.children}
     </>
   )
 }
