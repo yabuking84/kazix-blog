@@ -11,20 +11,36 @@ import {
 
 import USASVG from "@/assets/svg/countries/usa.svg"
 import TurkeySVG from "@/assets/svg/countries/turkey.svg"
-import { useTranslations } from "next-intl"
-import { useParams, usePathname  } from "next/navigation"
+import { useLocale, useTranslations } from "next-intl"
+import { useParams } from "next/navigation"
 import type { Locale } from "@/i18n.config"
-import { ReactNode } from "react"
+import { ReactNode, useTransition } from "react"
 import { cn } from "@/lib/utils"
-import Link from "next/link"
+import { useRouter, Link, usePathname } from "@/services/navigation"
 
 export default function LanguageSwitcher({ className, ...props }: Props) {
 
     const t = useTranslations()
+    const locale = useLocale() as Locale;
 
     const params = useParams<{ locale: Locale }>()
+    const router = useRouter();
+    const pathname = usePathname();
 
-    const locale = params.locale
+    const [isPending, startTransition] = useTransition();
+
+    function onSelect(nextLocale: Locale) {
+        startTransition(() => {
+            router.replace(
+                // @ts-expect-error -- TypeScript will validate that only known `params`
+                // are used in combination with a given `pathname`. Since the two will
+                // always match for the current route, we can skip runtime checks.
+                { pathname, params },
+                { locale: nextLocale }
+            );
+        });
+    }
+
 
     const langs: { [key in Locale]: { title: string, icon: ReactNode } } = {
         en: {
@@ -49,10 +65,11 @@ export default function LanguageSwitcher({ className, ...props }: Props) {
                     <DropdownMenuSeparator />
                     {Object.entries(langs).map(([k, v]) => (
                         <DropdownMenuItem key={k} className="p-0">
-                            <Link className="flex items-center w-full px-2 py-2" href={`/${k}`}>
+                            <p onClick={() => onSelect((k as Locale))}
+                                className="cursor-pointer flex items-center w-full px-2 py-2">
                                 {v.icon} &nbsp;
                                 <span className="font-bold">{v.title}</span>
-                            </Link>
+                            </p>
                         </DropdownMenuItem>
                     ))}
                 </DropdownMenuContent>

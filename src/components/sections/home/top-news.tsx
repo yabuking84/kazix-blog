@@ -1,7 +1,7 @@
 "use client"
 
 import { useStore } from "@/store/news/hooks";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { ComponentProps, useState } from "react";
 import {
@@ -28,7 +28,7 @@ export default function TopNewsSection(props: Props) {
     const t = useTranslations('blog');
 
     const [api, setApi] = useState<CarouselApi>()
-    const params = useParams<{ locale: Locale }>()
+    const locale = useLocale() as Locale;
 
     const { topNews } = useStore()
     return (
@@ -48,7 +48,7 @@ export default function TopNewsSection(props: Props) {
                         {topNews.map(e => (
                             <CarouselItem className="items-start" key={e.article_id}>
                                 <Link
-                                    locale={params.locale}
+                                    locale={locale}
                                     key={e.article_id} href={{
                                         pathname: '/article/'+e.article_id,
                                     }}>
